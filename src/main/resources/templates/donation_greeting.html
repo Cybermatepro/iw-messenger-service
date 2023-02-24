@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"></head>
+  <body>
+    <div class="pi-email-container">
+      <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+          <p class="pi-email-dear">Dear <span th:text="${payerName}"></span>,</p>
+
+          <div th:utext="${content}"></div>
+          <div th:text="${senderName}"></div>
+        </section>
+      </div>
+      <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+  </body>
+</html>

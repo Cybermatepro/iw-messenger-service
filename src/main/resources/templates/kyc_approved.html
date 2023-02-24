@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+<body>
+<div class="pi-email-container">
+    <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+            <p class="pi-email-dear">
+                <strong>Hello <span th:text="${firstName}"></span>,</strong>
+            </p>
+            <p>
+                Congratulations! Your Profile Maximum Amount has now been upgraded. See details below:
+
+               <ul>
+                    <li>
+                        Profile Name:  <strong> <span th:text="${firstName } "></span></strong>  <strong> <span th:text="${lastName } "></span></strong>
+                    </li>
+                    <li>
+                        <span th:if="${level.equals('2')} "> Maximum Single Donation:  N200,000</span>
+                        <span th:if="${level.equals('3')} ">Maximum Single Donation:  N5,000,000</span>
+                    </li>
+                    <li>
+                        <span th:if="${level.equals('2')} ">Maximum Single Donation:  500,000</span>
+                        <span th:if="${level.equals('3')} "> Maximum Single Donation:  UNLIMITED</span>
+                    </li>
+               </ul>
+
+
+                To receive beyond your Maximum Profile Amount, you will be required to Upgrade your Profile limit.<br>
+
+                <span style="color: red; background: yellow">Your Cause is valid because it matters!</span><br>
+
+            </p>
+
+            <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+    </div>
+    <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+</div>
+</body>
+</html>

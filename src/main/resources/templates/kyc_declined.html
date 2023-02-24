@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+<body>
+<div class="pi-email-container">
+    <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+            <p class="pi-email-dear">
+                <strong>Hello <span th:text="${firstName}"></span>,</strong>
+            </p>
+            <p>
+                Oh No! Your Profile cannot be activated at this time. We ran into a problem validating some information you provided on FundACause.
+
+                Kindly update the following to get activated: <br>
+                <strong><span th:text="${comment}"></span></strong> <br>
+
+
+                Your profile can be accessed from the profile dropdown on the upper right corner of your dashboard. Navigate to the KYC section on the profile page and upload affected documents.
+
+            <div class="pi-email-flex-container">
+                <button class="pi-email-button primary">Edit Profile</button>
+            </div>
+
+
+
+            <span style="color: red; background: yellow">Your Cause is valid because it matters!</span><br>
+            </p>
+
+
+            <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+    </div>
+    <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+</div>
+</body>
+</html>

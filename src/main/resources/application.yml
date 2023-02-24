@@ -1,0 +1,38 @@
+server:
+  port: 7071
+
+spring:
+  mail:
+    host: mx.remita.net
+    port: 465
+    username: insights@remita.net
+    password: (cq;Gd5I{#Eq
+    #username: enwerevincent@gmail.com
+   ## password: 2Cy65+NYmLQa
+   # password: Fbiswats1&2
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          auth: true
+  thymeleaf:
+    enabled: true
+  application:
+    name: iw-messenger
+app:
+  settings:
+    baseUrl: http://154.113.17.251:5001
+  mail:
+    from: insights@remita.net
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone : ${EUREKA_SERVER:http://localhost:8761/eureka/}
+  healthcheck:
+    enabled: true
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    hostname: localhost

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+  <body>
+    <div class="pi-email-container">
+      <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+          <div class="pi-email-dear">
+            <strong>Well Done <span th:text="${userName}"></span>,</strong>
+          </div>
+
+          <p>
+            You have met the target you set out for on (<strong
+              ><span th:text="${campaignName}"></span></strong
+            >)
+          </p>
+
+          <p>As usual we have gone a step futher to help you meet your dreams.</p>
+
+          <p>
+            Did you know that you could also make payments as relates to your campaigns directly
+            from your fund a cause wallet?
+          </p>
+
+          <p>
+            By so doing you can still benefit from a report which shows spending based on a
+            particular campaign and get a receipt for all your transactions.
+          </p>
+
+          <p>
+            All you have to do is to is make a payment from your wallet to whatever account you
+            want.
+          </p>
+
+          <button class="pi-email-button primary">Make Payments from your Wallet</button>
+
+          <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+      </div>
+      <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="mailHead">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <title>Notification</title>
+    <style type="text/css">
+      .pi-email-container {
+        font-family: 'Poppins', sans-serif;
+        max-width: 600px;
+        width: 100%;
+        font-size: 1rem;
+        margin: 0 auto;
+      }
+
+      .pi-email-body {
+        padding: 2rem 4rem;
+        border: none;
+        background-color: #f9fafd;
+        line-height: 2;
+        color: #212145;
+      }
+
+      p {
+        line-height: 1.6;
+        margin: 1.25rem 0;
+        color: #212145;
+      }
+
+      .pi-email-header {
+        padding-top: 2rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pi-email-footer {
+        background-color: #f2f2f2;
+        padding: 3rem 4rem;
+        text-align: left;
+        font-size: 14px;
+        color: #a0a1b9;
+      }
+
+      .pi-email-welcome-banner {
+        width: 100%;
+      }
+
+      .pi-email-dear {
+        font-size: 1.125rem;
+        font-weight: bold;
+        color: #000 !important;
+      }
+
+      .pi-email-flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .pi-email-flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pi-list {
+        margin: 0;
+        list-style-type: none;
+      }
+
+      .pi-list.dashed > li {
+        padding: 0.5rem 0;
+      }
+      .pi-list.dashed > li:before {
+        content: '- ';
+        text-indent: -5px;
+      }
+
+      .pi-email-list {
+        font-weight: bolder;
+        color: #000 !important;
+      }
+
+      .pi-email-list-values > p {
+        margin-left: 0.5rem;
+      }
+
+      .pi-email-button {
+        height: 3rem;
+        border-radius: 1.5rem;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        outline: none;
+        text-align: center;
+        margin: 0.3rem 0.3rem 0.3rem 0;
+        font-weight: bold;
+        margin: 1.6rem 0;
+        cursor: pointer;
+        border: none;
+      }
+
+      .pi-email-button.secondary {
+        background-color: #e1e6ec;
+        border: 1px solid #e1e6ec;
+        color: #212145 !important;
+      }
+
+      .pi-email-button.primary {
+        color: white !important;
+        background-color: #2f80ed;
+        border: 1px solid #2f80ed;
+      }
+
+      .pi-email-button.secondary:hover {
+        background-color: #e1e6ea;
+        color: #212145 !important;
+      }
+      .pi-email-button.primary:hover {
+        background-color: #2a73d5;
+      }
+
+      .pi-email-link {
+        color: #2f80ed;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .pi-website-logo {
+        height: 30px;
+      }
+
+      .pi-closing-greeting {
+        display: block;
+        padding-bottom: 8px;
+        font-size: 0.875rem;
+        color: #000 !important;
+      }
+
+      .pi-email-flex-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pi-email-flex-column > strong {
+        font-size: 1.2rem;
+      }
+      .pi-email-flex-column > span {
+        color: #000 !important;
+      }
+
+      .right-border {
+        border-right: 0.5px solid #c0c7c7;
+        padding: 0 1.5rem;
+        font-size: 1rem;
+      }
+      .end {
+        padding-left: 1.5rem;
+        font-size: 1rem;
+      }
+
+      .text-green {
+        color: #2caea6;
+      }
+      .text-blue {
+        color: #2f80ed;
+      }
+      .text-teal {
+        color: #4aa6ce;
+      }
+
+      .text-black {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pi-email-header" th:fragment="mailHeader">
+      <picture>
+        <source th:attr="srcset=|@{${baseUrl} + '/assets/images/logo.png'}|" />
+        <img th:src="@{${baseUrl} + '/assets/images/logo.png'}" class="pi-website-logo" />
+      </picture>
+    </div>
+
+    <div th:fragment="mailCloser">
+      <br />
+      <p>
+        <span class="pi-closing-greeting">With best regards,</span>
+        <span>Fund A Cause Team</span>
+      </p>
+    </div>
+
+    <div class="pi-email-footer" th:fragment="mailFooter">
+      Copyright &copy; <b><span th:text="${#dates.year(#dates.createNow())}"></span> FundACause</b> by
+      <b>SystemSpecs Limited.</b> All rights reserved
+    </div>
+  </body>
+</html>

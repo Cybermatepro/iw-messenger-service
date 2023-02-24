@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+  <body>
+    <div class="pi-email-container">
+      <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+          <div class="pi-email-dear">
+            <strong>Hello <span th:text="${userName}"></span>,</strong>
+          </div>
+          <p>
+            This is to confirm that the following changes have been made to your campaign
+            <span th:text="${campaignName}"></span>.
+          </p>
+
+          <div class="pi-email-flex-container">
+            <div class="pi-email-list">
+              <p><strong>Date:</strong> <span th:text="${campaignEndDate}"></span></p>
+              <p><strong>Target Amount:</strong> &#x20A6;<span th:text="${#numbers.formatInteger(targetAmount,3,'COMMA')}"></span></p></p>
+            </div>
+
+           
+          </div>
+
+          <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+      </div>
+      <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+  <body>
+    <div class="pi-email-container">
+      <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+          <div class="pi-email-dear">
+            <strong>Hello <span th:text="${userName}"></span>,</strong>
+          </div>
+
+          <p>
+            This is to remind you that your campaign (<strong
+              ><span th:text="${campaignName}"></span></strong
+            >) will reach its set target date in a week. Once your campaign has reached its target
+            date, it will no longer be available for donations.
+          </p>
+
+          <p>
+            We can see that you have not yet met your planned target amount. If you wish, you could
+            extend your target date.
+          </p>
+
+          <div class="pi-email-flex-container">
+            <button class="pi-email-button secondary">Edit Campaign</button>
+          </div>
+
+          <p>Otherwise we hope you were able to get closer to achieving your dreams.</p>
+
+          <p>We are always here the next time you intend to raise money for a cause.</p>
+
+          <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+      </div>
+      <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+  </body>
+</html>

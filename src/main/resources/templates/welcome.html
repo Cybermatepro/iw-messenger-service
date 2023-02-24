@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"></head>
+<body>
+    <div class="pi-email-container">
+      <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+      <div>
+        <picture>
+          <img
+            src="@{#{app.baseUrl}}/assets/images/mail_templates/welcome_banner.png"
+            alt="Welcome banner"
+            class="pi-email-welcome-banner"
+          />
+        </picture>
+      </div>
+      <div class="pi-email-body">
+          <section>
+              <div class="pi-email-dear">
+                    <strong>Dear <span th:text="${userName}"></span>,</strong>
+              </div>
+              <p>
+                Thank you for signing up on InvestWeb, your all in one place to raise funds for cause that is dear to you.
+              </p>
+
+              <p>To get started (if you have not already done this). You will need to verify your Account.</p>
+              <div class="pi-email-flex-center">
+                <button class="pi-email-button primary">
+                  <a th:href="@{http://localhost:8181/api/auth/verify(auth= ${code})}">Verify Your Account</a>
+                </button>
+              </div>
+              <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+          </section>
+
+          <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+    </div>
+</body>
+
+</html>

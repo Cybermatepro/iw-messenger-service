@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:insert="fragments/mail-wrapper.html :: mailHead"> </head>
+  <body>
+    <div class="pi-email-container">
+      <div class="pi-email-body">
+        <div th:replace="fragments/mail-wrapper.html :: mailHeader"></div>
+        <section>
+          <p class="pi-email-dear">
+            <strong>Hello <span th:text="${userName}"></span>,</strong>
+          </p>
+          <p>
+            Your request to upgrade your wallet limit has been recieved and is under going
+            processing. We will revert soon.
+          </p>
+
+          <div th:replace="fragments/mail-wrapper.html :: mailCloser"></div>
+        </section>
+      </div>
+      <div th:replace="fragments/mail-wrapper.html :: mailFooter"></div>
+    </div>
+  </body>
+</html>
